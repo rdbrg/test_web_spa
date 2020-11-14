@@ -1,0 +1,22 @@
+{% extends 'passhold/base.html' %}
+{% load static %}
+
+
+{% block title %}
+Edit data
+{% endblock %}
+
+
+{% block content_main %}
+
+    <h1>Edit data</h1>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        {{ form }}
+
+        <input type="submit" value="Update account">
+    </form>
+
+{% endblock %}

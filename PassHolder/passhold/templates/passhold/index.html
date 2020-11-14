@@ -1,0 +1,30 @@
+{% extends 'passhold/base.html' %}
+{% load static %}
+
+
+{% block title %}
+Data Holder
+{% endblock %}
+
+{% block content_main %}
+    <script src="static/passhold/js/copy-paste.js"></script>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add Account">
+    </form>
+
+    {% for data in passhold %}
+        <div class="ui-card ui-card--shadow">
+            <div id="demo" class="float-left">{{ data }}</div>
+            <div class="float-right">
+                <a class="button button-success button--round">Copy login</a>
+                <a class="button button-success button--round">Copy password</a>
+                <a class="button button-warning button--round" href="{% url 'edit' data.id %}">Edit</a>
+                <a class="" href="{% url 'delete' data.id %}" >Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

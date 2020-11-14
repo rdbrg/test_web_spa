@@ -1,0 +1,32 @@
+{% extends 'passhold/base.html' %}
+{% load static %}
+
+
+{% block title %}
+Delete data
+{% endblock %}
+
+
+{% block content_main %}
+
+
+<h1>Удалить аккаунт "{{ item }}"?</h1>
+
+    <button>
+        <a href="{% url 'main' %}">Отмена</a>
+    </button>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+
+        <input type="submit" value="Yes, delete">
+
+    </form>
+
+{% endblock %}
+
+
+
+
+
